@@ -16,7 +16,6 @@ public class Pistol : MonoBehaviour {
         while (angle < 0.8f)
         {
             Vector3 aimAngle = new Vector3(0, angle, 0);
-            Debug.Log((aimAngle + playerDir) * 360);
             if(Physics.Raycast(playerPos, (playerDir + aimAngle) * 360, out hit, 50))
             {
                 //TEMPORARY DEBUG INSTANTIATE CONFETTI

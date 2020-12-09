@@ -43,7 +43,7 @@ public class InsainPlayer : MonoBehaviour {
         movement = (gameObject.transform.right * Input.GetAxis("Horizontal")) + (gameObject.transform.forward * Input.GetAxis("Vertical"));
 
         Vector3 grav = new Vector3(0, gravitySpeed, 0);
-
+        
         if (!character.isGrounded)
         {
             gravitySpeed += gravity * Time.deltaTime;
@@ -68,6 +68,16 @@ public class InsainPlayer : MonoBehaviour {
     {
         float horizontalRot = Input.GetAxis("Mouse X");
         gameObject.transform.Rotate(0, horizontalRot * mouseSensitivity, 0);
+    }
+    
+    public void Damage()
+    {
+        //flash screen red when u get dmg, make some gradient pic and slice it in unity
+        //and also damage handler when you touch enemy (use enemy.tag) and when u get hit
+        //by enemy projectile OR raycast(?)
+        FindObjectOfType<UIControl>().DamageFlasher();
+        health -= 30;
+
     }
 
     //camera bob

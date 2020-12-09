@@ -52,7 +52,6 @@ public class Loot : MonoBehaviour {
 
     void OnTriggerStay(Collider other)
     {
-        Debug.Log("PENIS MUSCI");
         if (other.name == "PLAYER")
         {
             Action();

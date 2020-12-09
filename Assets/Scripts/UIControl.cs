@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class UIControl : MonoBehaviour {
 
+    public Canvas GameCanvas;
+    public Canvas PauseCanvas;
+    public CanvasGroup DamageCanvas;
+
     public Sprite[] faces;
     public Sprite[] weaponNumSprites;
     public Image[] weaponNumbersOnUI;
@@ -14,6 +18,8 @@ public class UIControl : MonoBehaviour {
     public Text Ammo;
     private WeaponManager weaponData;
     private InsainPlayer player;
+    private float damageAlpha = 0;
+    public bool paused;
 
 	// Use this for initialization
 	void Start () {
@@ -37,7 +43,43 @@ public class UIControl : MonoBehaviour {
             Ammo.text = weaponData.weaponAmmo[weaponData.currentWeapon].ToString();
         }
 
+        DamageCanvas.alpha = damageAlpha;
+        //damage canvas smoothing
+        if (damageAlpha > 0f)
+        {
+            damageAlpha -= Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) &! paused)
+        {
+            PauseGame();
+        }
+        else if(Input.GetKeyDown(KeyCode.Escape) && paused) {
+            UnPauseGame();
+        }
     }
+
+    //game paus
+    public void PauseGame()
+    {
+        paused = true;
+        //pause physics engine here(?)
+        GameCanvas.gameObject.SetActive(false);
+        PauseCanvas.gameObject.SetActive(true);
+
+
+    }
+    //gaym unpaus
+    public void UnPauseGame()
+    {
+        paused = false;
+
+        GameCanvas.gameObject.SetActive(true);
+        PauseCanvas.gameObject.SetActive(false);
+
+
+    }
+
 
     //face manager. (to be expanded?) more interpolation frames, and possibly a mouse lerp
     public void FaceMan()
@@ -54,6 +96,11 @@ public class UIControl : MonoBehaviour {
         {
             FaceOnUI.sprite = faces[1];
         }
+    }
+
+    public void DamageFlasher()
+    {
+        damageAlpha += 0.3f;
     }
 
     //weaponNumSprites only contains the sprite instances for unlocked, so just access them
