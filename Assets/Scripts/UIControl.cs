@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIControl : MonoBehaviour {
 
-    public Canvas GameCanvas;
+    public GameObject GameCanvas;
     public Canvas PauseCanvas;
     public CanvasGroup DamageCanvas;
 
@@ -25,6 +25,7 @@ public class UIControl : MonoBehaviour {
 	void Start () {
         weaponData = FindObjectOfType<WeaponManager>();
         player = FindObjectOfType<InsainPlayer>();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 	
 	// Update is called once per frame
@@ -66,16 +67,21 @@ public class UIControl : MonoBehaviour {
         //pause physics engine here(?)
         GameCanvas.gameObject.SetActive(false);
         PauseCanvas.gameObject.SetActive(true);
-
+        player.paused = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 0;
 
     }
     //gaym unpaus
     public void UnPauseGame()
     {
         paused = false;
-
         GameCanvas.gameObject.SetActive(true);
         PauseCanvas.gameObject.SetActive(false);
+        player.paused = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1;
 
 
     }

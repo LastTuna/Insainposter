@@ -18,6 +18,9 @@ public class InsainPlayer : MonoBehaviour {
     private float bobFactor;
     private bool bobDir;
 
+    public bool paused;
+    //to pause bobbing animation
+
     private const float loBob = 25;
     //loBob controls the lowest the camera will bob
     //lobob also controls the RATE of camera bob
@@ -32,7 +35,10 @@ public class InsainPlayer : MonoBehaviour {
 	void Update () {
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
-            Bobbing();
+            if (!paused)
+            {
+                Bobbing();
+            }
         }
 	}
 
@@ -44,6 +50,7 @@ public class InsainPlayer : MonoBehaviour {
 
         Vector3 grav = new Vector3(0, gravitySpeed, 0);
         
+
         if (!character.isGrounded)
         {
             gravitySpeed += gravity * Time.deltaTime;
