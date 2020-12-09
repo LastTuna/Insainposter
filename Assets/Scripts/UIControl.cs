@@ -23,19 +23,8 @@ public class UIControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetAxis("Mouse X") > 0.4f)
-        {
-            FaceOnUI.sprite = faces[2];
-        }
-        else if (Input.GetAxis("Mouse X") < -0.4f)
-        {
-            FaceOnUI.sprite = faces[0];
-        }
-        else
-        {
-            FaceOnUI.sprite = faces[1];
-        }
 
+        FaceMan();
         Health.text = Mathf.Round(player.health).ToString();
         Armor.text = Mathf.Round(player.armor).ToString();
 
@@ -50,11 +39,28 @@ public class UIControl : MonoBehaviour {
 
     }
 
+    //face manager. (to be expanded?) more interpolation frames, and possibly a mouse lerp
+    public void FaceMan()
+    {
+        if (Input.GetAxis("Mouse X") > 0.4f)
+        {
+            FaceOnUI.sprite = faces[2];
+        }
+        else if (Input.GetAxis("Mouse X") < -0.4f)
+        {
+            FaceOnUI.sprite = faces[0];
+        }
+        else
+        {
+            FaceOnUI.sprite = faces[1];
+        }
+    }
+
+    //weaponNumSprites only contains the sprite instances for unlocked, so just access them
+    //with the same index. cant really lock a weapon again but why would you do that?
     public void UnlockWeapon(int weapon)
     {
         weaponNumbersOnUI[weapon].sprite = weaponNumSprites[weapon];
-
-
     }
 
 }

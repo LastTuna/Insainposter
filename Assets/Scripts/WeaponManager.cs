@@ -60,6 +60,8 @@ public class WeaponManager : MonoBehaviour {
 
     void UseWeapon()
     {
+        //this is a monster
+        //call coroutines from other classes, then return false to firing bool.
         weaponAmmo[currentWeapon]--;
         switch (currentWeapon)
         {
@@ -73,8 +75,6 @@ public class WeaponManager : MonoBehaviour {
             case 2:
                 break;
             case 3:
-                //this is a monster
-                //call coroutine from baseballbat, once its done it will callback a false
                 StartCoroutine(baseballbat.BatSwing((swingin) => {
                     if (swingin) firing = false; }));
                 break;
@@ -84,6 +84,7 @@ public class WeaponManager : MonoBehaviour {
 
     void WeaponKeySelector()
     {
+        //press buton, simple as.
         int oldWeapon = currentWeapon;
         if (Input.GetKey("1") && availableWeapons[0])
         {

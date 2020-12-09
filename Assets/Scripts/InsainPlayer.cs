@@ -63,12 +63,14 @@ public class InsainPlayer : MonoBehaviour {
         Turning();
     }
     
+    //mouse control rotation etc
     public void Turning()
     {
         float horizontalRot = Input.GetAxis("Mouse X");
         gameObject.transform.Rotate(0, horizontalRot * mouseSensitivity, 0);
     }
-    
+
+    //camera bob
     public void Bobbing()
     {
 

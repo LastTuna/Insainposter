@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pistol : MonoBehaviour {
 
     public GameObject confetti;
-
+    //edit this, add the wormhole sprite instead
 
     public IEnumerator ShootPistol(Vector3 playerPos, Vector3 playerDir, System.Action<bool> callback)
     {
@@ -13,18 +13,17 @@ public class Pistol : MonoBehaviour {
         //if first doesnt hit then try second angle then third
         RaycastHit hit;
         float angle = 0;
-        Debug.Log(playerPos + " PENIS " + playerDir);
         while (angle < 0.8f)
         {
             Vector3 aimAngle = new Vector3(0, angle, 0);
             Debug.Log((aimAngle + playerDir) * 360);
             if(Physics.Raycast(playerPos, (playerDir + aimAngle) * 360, out hit, 50))
             {
-                //TEMPORARY DEBUG INSTANTIATE
+                //TEMPORARY DEBUG INSTANTIATE CONFETTI
                 Instantiate(confetti, hit.point, hit.transform.rotation);
                 if (hit.collider.tag == "Enemy")
                 {
-                    //add the explosion effect here
+                    //add the wormhole sprite instantiate here
                     Destroy(hit.collider.gameObject);
                     break;
                 }
