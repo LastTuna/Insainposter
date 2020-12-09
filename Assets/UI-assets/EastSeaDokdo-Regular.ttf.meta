@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: efe1d690ec95fa1479c00172db2d5334
+timeCreated: 1607514407
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: East Sea Dokdo
+  fontNames:
+  - East Sea Dokdo
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
