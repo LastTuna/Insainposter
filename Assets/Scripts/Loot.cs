@@ -44,7 +44,7 @@ public class Loot : MonoBehaviour {
                 break;
 
             case "AMMO0":
-                FindObjectOfType<WeaponManager>().weaponAmmo[3] += value;
+                FindObjectOfType<WeaponManager>().weaponAmmo[0] += value;
                 break;
 
         }
