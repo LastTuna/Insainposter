@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIControl : MonoBehaviour {
 
     public GameObject GameCanvas;
     public Canvas PauseCanvas;
     public CanvasGroup DamageCanvas;
+    public GameObject LoadCanvas;
 
     public Sprite[] faces;
     public Sprite[] weaponNumSprites;
@@ -82,10 +84,34 @@ public class UIControl : MonoBehaviour {
         player.paused = false;
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
-
-
     }
 
+    //return to main menu
+    public void GoHome()
+    {
+        StartCoroutine(LoadScene(0));
+    }
+
+    //restard stage
+    public void RestartStage()
+    {
+        StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex));
+    }
+
+    //use this func to restart and return to main menu
+    IEnumerator LoadScene(int stage)
+    {
+        yield return new WaitForEndOfFrame();
+        PauseCanvas.gameObject.SetActive(false);
+        LoadCanvas.SetActive(true);
+        yield return new WaitForSecondsRealtime(2);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(stage);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+        Time.timeScale = 1;
+    }
 
     //face manager. (to be expanded?) more interpolation frames, and possibly a mouse lerp
     public void FaceMan()
