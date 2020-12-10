@@ -105,12 +105,12 @@ public class UIControl : MonoBehaviour {
         PauseCanvas.gameObject.SetActive(false);
         LoadCanvas.SetActive(true);
         yield return new WaitForSecondsRealtime(2);
+        Time.timeScale = 1;
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(stage);
         while (!asyncLoad.isDone)
         {
             yield return null;
         }
-        Time.timeScale = 1;
     }
 
     //face manager. (to be expanded?) more interpolation frames, and possibly a mouse lerp
