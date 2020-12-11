@@ -65,7 +65,17 @@ public class UIControl : MonoBehaviour {
         }
     }
 
-    void OpenPauseCanvas()
+    public void YoureDead()
+    {
+        //ÀHAH(AHA YOUR SHITTER IF U ACUTALLY DIEDN OOOOOOOOOO WAYYY 
+        //(OK DO THIS CODE
+        YoureDeadCanvas.gameObject.SetActive(true);
+        //COME UP WITH SOMETHING FOR LIKE WHENN U PRESS THE BUTONS ON SCREEN
+        //THANK FOR GOD AUTO COMmPLE ON SYBNTAX
+    }
+
+    //opens and closes canvas
+    public void OpenPauseCanvas()
     {
         GameCanvas.gameObject.SetActive(!paused);
         PauseCanvas.gameObject.SetActive(paused);
@@ -80,7 +90,6 @@ public class UIControl : MonoBehaviour {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0;
-
     }
     //gaym unpaus
     public void UnPauseGame()

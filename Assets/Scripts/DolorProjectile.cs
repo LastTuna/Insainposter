@@ -10,27 +10,26 @@ public class DolorProjectile : MonoBehaviour {
     //then despawns
 
     public float projectileSpeed = 0.7f;
-
+    public int damage = 10;
     
-
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-
 	void FixedUpdate () {
         gameObject.transform.position += projectileSpeed * gameObject.transform.forward * Time.deltaTime;
+
 	}
 
-    private void OnTriggerStay(Collider other)
+    //im 3 beers in so this is what you get for this detection
+    //ignore enemy collsision because all projectiles are spawned inside the enemy sop yea
+    private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("le australian hit" + other.tag + other.name);
+
         if(other.name == "PLAYER")
         {
-            //call player damage here
+            Debug.Log("narr the aussie done glass u");
+            FindObjectOfType<InsainPlayer>().Damage(damage);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
-    }
 
+        if (other.tag != "Enemy") Destroy(gameObject);
+    }
 }

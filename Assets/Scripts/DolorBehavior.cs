@@ -10,7 +10,12 @@ public class DolorBehavior : MonoBehaviour {
     private float currentSpeed = 0f;
     public float gravity = -0.2f;//gravity- leave at 0 for a flying monster (think:cacodemon)
     private float gravitySpeed = 0;
-    
+    public float shootRate = 1f;//shoot rate in seconds
+    public GameObject projectile;//put the projectile prefab here
+    //if projectile == null then dont shoot nuffin obv
+    private bool shooting;
+    //shooting will work via a coroutine since we are using seconds
+
     public CharacterController entity;
     //THIS instances character controller
     public GameObject player;
@@ -21,7 +26,6 @@ public class DolorBehavior : MonoBehaviour {
     public float maxDistance;
     //max distance: how far the ai can be before it will start walking towards you.
     //PUT MIN AND MAX DISTANCE TO 0 FOR MELEE MOBS
-    public GameObject confetti;
 
 	// Use this for initialization
 	void Start () {
@@ -61,7 +65,19 @@ public class DolorBehavior : MonoBehaviour {
         }
         entity.Move(grav);
 
+        if(sight && projectile != null && !shooting)
+        {
+            StartCoroutine(ShootProjectile());
+        }
+    }
 
+    IEnumerator ShootProjectile()
+    {
+        shooting = true;
+        Instantiate(projectile, gameObject.transform.position, gameObject.transform.rotation);
+        yield return new WaitForSeconds(shootRate);
+        shooting = false;
+        yield return null;
     }
 
     void StrayBehavior(float distance)

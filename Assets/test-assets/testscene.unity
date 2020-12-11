@@ -408,11 +408,12 @@ MonoBehaviour:
   sight: 0
   movementSpeed: 0.05
   gravity: -0.2
+  shootRate: 1
+  projectile: {fileID: 1726096401663486, guid: 1634c3ce375e19d4eb1bae5337432434, type: 2}
   entity: {fileID: 57200516}
   player: {fileID: 1574960603}
   minDistance: 2
   maxDistance: 5
-  confetti: {fileID: 1836382373072094, guid: 30dedcc2e01717a42a8a369107eea17e, type: 2}
 --- !u!143 &57200516
 CharacterController:
   m_ObjectHideFlags: 0
@@ -825,11 +826,12 @@ MonoBehaviour:
   sight: 0
   movementSpeed: 0.05
   gravity: -0.2
+  shootRate: 1
+  projectile: {fileID: 1726096401663486, guid: 1634c3ce375e19d4eb1bae5337432434, type: 2}
   entity: {fileID: 210403697}
   player: {fileID: 1574960603}
   minDistance: 2
   maxDistance: 5
-  confetti: {fileID: 1836382373072094, guid: 30dedcc2e01717a42a8a369107eea17e, type: 2}
 --- !u!143 &210403697
 CharacterController:
   m_ObjectHideFlags: 0
@@ -915,11 +917,12 @@ MonoBehaviour:
   sight: 0
   movementSpeed: 0.05
   gravity: -0.2
+  shootRate: 1
+  projectile: {fileID: 1726096401663486, guid: 1634c3ce375e19d4eb1bae5337432434, type: 2}
   entity: {fileID: 274104356}
   player: {fileID: 1574960603}
   minDistance: 2
   maxDistance: 5
-  confetti: {fileID: 1836382373072094, guid: 30dedcc2e01717a42a8a369107eea17e, type: 2}
 --- !u!143 &274104356
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1448,6 +1451,7 @@ MonoBehaviour:
   PauseCanvas: {fileID: 326026922}
   DamageCanvas: {fileID: 1151795365}
   LoadCanvas: {fileID: 1860020332}
+  YoureDeadCanvas: {fileID: 0}
   faces:
   - {fileID: 21300000, guid: 785a74bf0d8bd784497d887c6b10d2c2, type: 3}
   - {fileID: 21300000, guid: c482acc86a23f8743838598f3a6d3ce5, type: 3}
@@ -1795,11 +1799,12 @@ MonoBehaviour:
   sight: 0
   movementSpeed: 0.05
   gravity: -0.2
+  shootRate: 1
+  projectile: {fileID: 1726096401663486, guid: 1634c3ce375e19d4eb1bae5337432434, type: 2}
   entity: {fileID: 716050141}
   player: {fileID: 1574960603}
   minDistance: 2
   maxDistance: 5
-  confetti: {fileID: 1836382373072094, guid: 30dedcc2e01717a42a8a369107eea17e, type: 2}
 --- !u!143 &716050141
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2581,11 +2586,12 @@ MonoBehaviour:
   sight: 0
   movementSpeed: 0.05
   gravity: -0.2
+  shootRate: 1
+  projectile: {fileID: 1726096401663486, guid: 1634c3ce375e19d4eb1bae5337432434, type: 2}
   entity: {fileID: 1186651999}
   player: {fileID: 1574960603}
   minDistance: 2
   maxDistance: 5
-  confetti: {fileID: 1836382373072094, guid: 30dedcc2e01717a42a8a369107eea17e, type: 2}
 --- !u!143 &1186651999
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2933,11 +2939,12 @@ MonoBehaviour:
   sight: 0
   movementSpeed: 0.05
   gravity: -0.2
+  shootRate: 1
+  projectile: {fileID: 1726096401663486, guid: 1634c3ce375e19d4eb1bae5337432434, type: 2}
   entity: {fileID: 1389397189}
   player: {fileID: 1574960603}
   minDistance: 2
   maxDistance: 5
-  confetti: {fileID: 1836382373072094, guid: 30dedcc2e01717a42a8a369107eea17e, type: 2}
 --- !u!143 &1389397189
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3133,11 +3140,12 @@ MonoBehaviour:
   sight: 0
   movementSpeed: 0.05
   gravity: -0.2
+  shootRate: 1
+  projectile: {fileID: 1726096401663486, guid: 1634c3ce375e19d4eb1bae5337432434, type: 2}
   entity: {fileID: 1452660495}
   player: {fileID: 1574960603}
   minDistance: 2
   maxDistance: 5
-  confetti: {fileID: 1836382373072094, guid: 30dedcc2e01717a42a8a369107eea17e, type: 2}
 --- !u!143 &1452660495
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3912,6 +3920,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 531538715}
+        m_MethodName: OpenPauseCanvas
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1704938321
@@ -4234,11 +4253,12 @@ MonoBehaviour:
   sight: 0
   movementSpeed: 0.05
   gravity: -0.2
+  shootRate: 1
+  projectile: {fileID: 1726096401663486, guid: 1634c3ce375e19d4eb1bae5337432434, type: 2}
   entity: {fileID: 1804773141}
   player: {fileID: 1574960603}
   minDistance: 2
   maxDistance: 5
-  confetti: {fileID: 1836382373072094, guid: 30dedcc2e01717a42a8a369107eea17e, type: 2}
 --- !u!143 &1804773141
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4443,11 +4463,12 @@ MonoBehaviour:
   sight: 0
   movementSpeed: 0.05
   gravity: -0.2
+  shootRate: 1
+  projectile: {fileID: 1726096401663486, guid: 1634c3ce375e19d4eb1bae5337432434, type: 2}
   entity: {fileID: 1857198256}
   player: {fileID: 1574960603}
   minDistance: 2
   maxDistance: 5
-  confetti: {fileID: 1836382373072094, guid: 30dedcc2e01717a42a8a369107eea17e, type: 2}
 --- !u!1 &1860020332
 GameObject:
   m_ObjectHideFlags: 0

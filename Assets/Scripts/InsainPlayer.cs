@@ -17,7 +17,7 @@ public class InsainPlayer : MonoBehaviour {
     public Vector3 defaultCamPos;
     private float bobFactor;
     private bool bobDir;
-
+    
     public bool paused;
     //to pause bobbing animation
 
@@ -72,6 +72,16 @@ public class InsainPlayer : MonoBehaviour {
         character.Move(momentum + movement * movementSpeed);
         character.Move(grav);
         Turning();
+
+        if (health <= 0)
+        {
+            Debug.Log("you are dead bitch)");
+            paused = true;
+            FindObjectOfType<UIControl>().PauseGame();
+            //MYABE MAKE LIKE DEATH UI CALLER IN UICONTROL???????????
+            //OPEN DEAD UI HERE IF UR A BITCH AND DIE LOL
+            //ALSO)I JDONT FORGDET JFI ;MAKE DEAD UI
+        }
     }
     
     //mouse control rotation etc
@@ -81,13 +91,15 @@ public class InsainPlayer : MonoBehaviour {
         gameObject.transform.Rotate(0, horizontalRot * mouseSensitivity, 0);
     }
     
-    public void Damage()
+    public void Damage(int damage)
     {
         //flash screen red when u get dmg, make some gradient pic and slice it in unity
         //and also damage handler when you touch enemy (use enemy.tag) and when u get hit
         //by enemy projectile OR raycast(?)
+        //this method is currently called from:
+        //DolorProjectile.cs
         FindObjectOfType<UIControl>().DamageFlasher();
-        health -= 30;
+        health -= damage;
 
     }
 
