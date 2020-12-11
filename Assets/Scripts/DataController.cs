@@ -48,6 +48,9 @@ public class DataController : MonoBehaviour {
             LoadedData.FOV = 60;
             LoadedData.MouseSensitivity = 2;
             LoadedData.difficulty = 0;
+            LoadedData.musicVolume = 0.8f;
+            LoadedData.effectsVolume = 0.8f;
+            LoadedData.LazyRiver = false;
             LoadedData.levelRating = new int[5];
 
             SaveGameData();
@@ -75,7 +78,7 @@ public class GameData
     //not sure if time to implement but added here anyw
     public float musicVolume;
     public float effectsVolume;
-
+    public bool LazyRiver;
     //store the best score you get in this int array. translate int
     //to the character value (SABCDF) in somewhere else
     public int[] levelRating;

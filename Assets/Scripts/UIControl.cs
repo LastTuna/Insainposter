@@ -10,6 +10,7 @@ public class UIControl : MonoBehaviour {
     public Canvas PauseCanvas;
     public CanvasGroup DamageCanvas;
     public GameObject LoadCanvas;
+    public Canvas YoureDeadCanvas;
 
     public Sprite[] faces;
     public Sprite[] weaponNumSprites;
@@ -53,13 +54,21 @@ public class UIControl : MonoBehaviour {
             damageAlpha -= Time.deltaTime;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) &! paused)
+        if (Input.GetKeyDown(KeyCode.Escape) &! paused && player.health > 0)
         {
             PauseGame();
+            OpenPauseCanvas();
         }
-        else if(Input.GetKeyDown(KeyCode.Escape) && paused) {
+        else if(Input.GetKeyDown(KeyCode.Escape) && paused && player.health > 0) {
             UnPauseGame();
+            OpenPauseCanvas();
         }
+    }
+
+    void OpenPauseCanvas()
+    {
+        GameCanvas.gameObject.SetActive(!paused);
+        PauseCanvas.gameObject.SetActive(paused);
     }
 
     //game paus
@@ -67,8 +76,6 @@ public class UIControl : MonoBehaviour {
     {
         paused = true;
         //pause physics engine here(?)
-        GameCanvas.gameObject.SetActive(false);
-        PauseCanvas.gameObject.SetActive(true);
         player.paused = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -79,10 +86,9 @@ public class UIControl : MonoBehaviour {
     public void UnPauseGame()
     {
         paused = false;
-        GameCanvas.gameObject.SetActive(true);
-        PauseCanvas.gameObject.SetActive(false);
         player.paused = false;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         Time.timeScale = 1;
     }
 

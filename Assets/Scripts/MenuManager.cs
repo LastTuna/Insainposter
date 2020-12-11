@@ -13,7 +13,11 @@ public class MenuManager : MonoBehaviour {
     public Canvas LevelSelectCanvas;
     public Canvas SettingsCanvas;
     public Canvas LoadScreenCanvas;
-    
+    public Canvas CreditsCanvas;
+    //som failsafe if somethin breaks or stuf (WRONG)
+    public GameObject Temp;
+    private int culoDolor;
+
 
     public void OpenLevelSelect()
     {
@@ -25,6 +29,9 @@ public class MenuManager : MonoBehaviour {
     {
         MainMenuCanvas.gameObject.SetActive(false);
         SettingsCanvas.gameObject.SetActive(true);
+        DataController dolor = FindObjectOfType<DataController>();
+        GameObject.Find("sliderFOV").GetComponent<Slider>().value = dolor.LoadedData.FOV;
+        GameObject.Find("sliderMouseSens").GetComponent<Slider>().value = dolor.LoadedData.MouseSensitivity;
     }
 
     //load stage from level select
@@ -45,14 +52,31 @@ public class MenuManager : MonoBehaviour {
         }
     }
 
+    public void OpenCredits()
+    {
+        MainMenuCanvas.gameObject.SetActive(false);
+        CreditsCanvas.gameObject.SetActive(true);
+    }
+
+    public void ButonOnINSAIN()
+    {
+        culoDolor++;
+        if(culoDolor > 5)
+        {
+            culoDolor = 0;
+            if (!FindObjectOfType<DataController>().LoadedData.LazyRiver)
+            {
+                MainMenuCanvas.gameObject.SetActive(false);
+                Temp.SetActive(true);
+            }
+        }
+    }
 
     public void SaveSettings()
     {
         DataController data = FindObjectOfType<DataController>();
-        //gameovbject.find() all the slider/button values
-        //puts all values on the data controller and save is called in Cancel()
-
-        Cancel();
+        data.LoadedData.FOV = (int)GameObject.Find("sliderFOV").GetComponent<Slider>().value;
+        data.LoadedData.MouseSensitivity = GameObject.Find("sliderMouseSens").GetComponent<Slider>().value;
     }
 
 
@@ -67,7 +91,7 @@ public class MenuManager : MonoBehaviour {
         //settings -> main menu
         if (SettingsCanvas.gameObject.activeSelf)
         {
-
+            SaveSettings();
             SettingsCanvas.gameObject.SetActive(false);
             MainMenuCanvas.gameObject.SetActive(true);
 
@@ -76,6 +100,19 @@ public class MenuManager : MonoBehaviour {
         if (LevelSelectCanvas.gameObject.activeSelf)
         {
             LevelSelectCanvas.gameObject.SetActive(false);
+            MainMenuCanvas.gameObject.SetActive(true);
+        }
+        //credits -> main menu
+        if (CreditsCanvas.gameObject.activeSelf)
+        {
+            CreditsCanvas.gameObject.SetActive(false);
+            MainMenuCanvas.gameObject.SetActive(true);
+        }
+
+        //dolor
+        if (Temp.activeSelf)
+        {
+            Temp.SetActive(false);
             MainMenuCanvas.gameObject.SetActive(true);
         }
 

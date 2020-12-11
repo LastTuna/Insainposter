@@ -29,7 +29,11 @@ public class InsainPlayer : MonoBehaviour {
     // Use this for initialization
     void Start () {
         defaultCamPos = HeadCam.transform.localPosition;
-	}
+        DataController dolor = FindObjectOfType<DataController>();
+        HeadCam.GetComponent<Camera>().fieldOfView = dolor.LoadedData.FOV;
+        mouseSensitivity = dolor.LoadedData.MouseSensitivity;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
