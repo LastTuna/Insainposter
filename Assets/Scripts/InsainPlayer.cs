@@ -78,9 +78,8 @@ public class InsainPlayer : MonoBehaviour {
             Debug.Log("you are dead bitch)");
             paused = true;
             FindObjectOfType<UIControl>().PauseGame();
-            //MYABE MAKE LIKE DEATH UI CALLER IN UICONTROL???????????
-            //OPEN DEAD UI HERE IF UR A BITCH AND DIE LOL
-            //ALSO)I JDONT FORGDET JFI ;MAKE DEAD UI
+            FindObjectOfType<UIControl>().YoureDead();
+            //ur fukin dead kid
         }
     }
     

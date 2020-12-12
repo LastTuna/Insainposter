@@ -23,6 +23,7 @@ public class UIControl : MonoBehaviour {
     private InsainPlayer player;
     private float damageAlpha = 0;
     public bool paused;
+    public GameObject insainText;
 
 	// Use this for initialization
 	void Start () {
@@ -67,11 +68,17 @@ public class UIControl : MonoBehaviour {
 
     public void YoureDead()
     {
-        //ÀHAH(AHA YOUR SHITTER IF U ACUTALLY DIEDN OOOOOOOOOO WAYYY 
-        //(OK DO THIS CODE
+        //ok your dead
+        //for now just open dead canvas and pause the game. later on possibly implement a death animation?
         YoureDeadCanvas.gameObject.SetActive(true);
-        //COME UP WITH SOMETHING FOR LIKE WHENN U PRESS THE BUTONS ON SCREEN
-        //THANK FOR GOD AUTO COMmPLE ON SYBNTAX
+        PauseGame();
+        //put the funny butons on the death screen
+    }
+
+    //i dont know the purpose of this yet but i want it here
+    public void GoInsain(bool insain)
+    {
+
     }
 
     //opens and closes canvas

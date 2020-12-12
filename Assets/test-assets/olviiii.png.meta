@@ -3,12 +3,16 @@ guid: da65a1ad67720d64c94de4304d6874e5
 timeCreated: 1607725474
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: olviiii_0
+    21300002: olviiii_1
+    21300004: olviiii_2
+    21300006: olviiii_3
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -31,16 +35,16 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -1
-    wrapU: -1
-    wrapV: -1
+    wrapU: 1
+    wrapV: 1
     wrapW: -1
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -48,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
@@ -78,8 +82,98 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
-    outline: []
+    sprites:
+    - serializedVersion: 2
+      name: olviiii_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: olviiii_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: olviiii_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: olviiii_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline:
+    - - {x: -206, y: 64}
+      - {x: -220, y: 48}
+      - {x: -220, y: -64}
+      - {x: -164, y: -64}
+      - {x: -164, y: 16}
+      - {x: -178, y: 64}
+    - - {x: 44, y: 62}
+      - {x: 10, y: -14}
+      - {x: 10, y: -62}
+      - {x: 12, y: -64}
+      - {x: 46, y: -64}
+      - {x: 84, y: -48}
+      - {x: 108, y: 18}
+      - {x: 108, y: 60}
+      - {x: 102, y: 62}
+    - - {x: 242, y: 52}
+      - {x: 206, y: 52}
+      - {x: 172, y: 36}
+      - {x: 130, y: -26}
+      - {x: 130, y: -52}
+      - {x: 148, y: -64}
+      - {x: 180, y: -64}
+      - {x: 198, y: -42}
+      - {x: 244, y: 18}
+      - {x: 244, y: 50}
+    - - {x: -94, y: 56}
+      - {x: -124, y: 56}
+      - {x: -128, y: 48}
+      - {x: -128, y: -2}
+      - {x: -84, y: -62}
+      - {x: -18, y: -62}
+      - {x: -14, y: -50}
+      - {x: -14, y: -20}
+      - {x: -62, y: 38}
     physicsShape: []
   spritePackingTag: 
   userData: 

@@ -1967,6 +1967,7 @@ MonoBehaviour:
     difficulty: 0
     musicVolume: 0
     effectsVolume: 0
+    LazyRiver: 0
     levelRating: 
 --- !u!4 &777752160
 Transform:
