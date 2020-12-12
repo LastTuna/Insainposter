@@ -19,6 +19,8 @@ public class InsainPlayer : MonoBehaviour {
     private bool bobDir;
     
     public bool paused;
+    public List<string> inventory;
+
     //to pause bobbing animation
 
     private const float loBob = 25;
@@ -81,7 +83,41 @@ public class InsainPlayer : MonoBehaviour {
             FindObjectOfType<UIControl>().YoureDead();
             //ur fukin dead kid
         }
+
+        //interaction button handler(mouse right)
+        if (Input.GetAxis("Fire2") > 0)
+        {
+            ActionButton();
+        }
+
     }
+
+    void ActionButton()
+    {
+        //this is the interaction handler for using keys and utilities
+        RaycastHit hit;
+        if (Physics.Raycast(gameObject.transform.position, gameObject.transform.rotation.eulerAngles, out hit, 2.0f))
+        {
+            if(hit.collider.tag == "Interactable")
+            {
+                //no idea what to put here yet
+
+
+
+            }
+        }
+    }
+
+    public void AddItem(string item)
+    {
+        inventory.Add(item);
+    }
+
+    public void RemoveItem(string item)
+    {
+        inventory.Remove(item);
+    }
+
     
     //mouse control rotation etc
     public void Turning()

@@ -112,8 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75c9e57163233b4dae1707047e72e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 4
+  projectileSpeed: 6
   damage: 10
+  projectileSprite: {fileID: 1049198133688030}
 --- !u!212 &212411827217932886
 SpriteRenderer:
   m_ObjectHideFlags: 1

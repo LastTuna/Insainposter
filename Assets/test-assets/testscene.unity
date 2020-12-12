@@ -408,7 +408,7 @@ MonoBehaviour:
   sight: 0
   movementSpeed: 0.05
   gravity: -0.2
-  shootRate: 1
+  shootRate: 6
   projectile: {fileID: 1013960813734626, guid: 1634c3ce375e19d4eb1bae5337432434, type: 2}
   entity: {fileID: 57200516}
   player: {fileID: 1574960603}
@@ -826,7 +826,7 @@ MonoBehaviour:
   sight: 0
   movementSpeed: 0.05
   gravity: -0.2
-  shootRate: 1
+  shootRate: 6
   projectile: {fileID: 1013960813734626, guid: 1634c3ce375e19d4eb1bae5337432434, type: 2}
   entity: {fileID: 210403697}
   player: {fileID: 1574960603}
@@ -917,7 +917,7 @@ MonoBehaviour:
   sight: 0
   movementSpeed: 0.05
   gravity: -0.2
-  shootRate: 1
+  shootRate: 6
   projectile: {fileID: 1013960813734626, guid: 1634c3ce375e19d4eb1bae5337432434, type: 2}
   entity: {fileID: 274104356}
   player: {fileID: 1574960603}
@@ -1941,7 +1941,7 @@ MonoBehaviour:
   sight: 0
   movementSpeed: 0.05
   gravity: -0.2
-  shootRate: 1
+  shootRate: 6
   projectile: {fileID: 1013960813734626, guid: 1634c3ce375e19d4eb1bae5337432434, type: 2}
   entity: {fileID: 716050141}
   player: {fileID: 1574960603}
@@ -2998,7 +2998,7 @@ MonoBehaviour:
   sight: 0
   movementSpeed: 0.05
   gravity: -0.2
-  shootRate: 1
+  shootRate: 6
   projectile: {fileID: 1013960813734626, guid: 1634c3ce375e19d4eb1bae5337432434, type: 2}
   entity: {fileID: 1186651999}
   player: {fileID: 1574960603}
@@ -3425,7 +3425,7 @@ MonoBehaviour:
   sight: 0
   movementSpeed: 0.05
   gravity: -0.2
-  shootRate: 1
+  shootRate: 6
   projectile: {fileID: 1013960813734626, guid: 1634c3ce375e19d4eb1bae5337432434, type: 2}
   entity: {fileID: 1389397189}
   player: {fileID: 1574960603}
@@ -3626,7 +3626,7 @@ MonoBehaviour:
   sight: 0
   movementSpeed: 0.05
   gravity: -0.2
-  shootRate: 1
+  shootRate: 6
   projectile: {fileID: 1013960813734626, guid: 1634c3ce375e19d4eb1bae5337432434, type: 2}
   entity: {fileID: 1452660495}
   player: {fileID: 1574960603}
@@ -4911,7 +4911,7 @@ MonoBehaviour:
   sight: 0
   movementSpeed: 0.05
   gravity: -0.2
-  shootRate: 1
+  shootRate: 6
   projectile: {fileID: 1013960813734626, guid: 1634c3ce375e19d4eb1bae5337432434, type: 2}
   entity: {fileID: 1804773141}
   player: {fileID: 1574960603}
@@ -5121,7 +5121,7 @@ MonoBehaviour:
   sight: 0
   movementSpeed: 0.05
   gravity: -0.2
-  shootRate: 1
+  shootRate: 6
   projectile: {fileID: 1013960813734626, guid: 1634c3ce375e19d4eb1bae5337432434, type: 2}
   entity: {fileID: 1857198256}
   player: {fileID: 1574960603}

@@ -128,6 +128,7 @@ public class UIControl : MonoBehaviour {
         LoadCanvas.SetActive(true);
         yield return new WaitForSecondsRealtime(2);
         Time.timeScale = 1;
+        yield return new WaitForEndOfFrame();
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(stage);
         while (!asyncLoad.isDone)
         {
