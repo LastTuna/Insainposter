@@ -69,6 +69,12 @@ public class DolorBehavior : MonoBehaviour {
         {
             StartCoroutine(ShootProjectile());
         }
+        //if enemy runs out of health it dies DUH
+        if(health < 0)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     IEnumerator ShootProjectile()
@@ -104,5 +110,13 @@ public class DolorBehavior : MonoBehaviour {
 
     }
     
+    public void Damage(int damage)
+    {
+        //things you can expand this with:
+        //enemy damage animation
+        //whatever else you can come up with
+        health = -damage;
+    }
+
 }
 

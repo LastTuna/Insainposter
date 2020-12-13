@@ -6,6 +6,9 @@ public class Pistol : MonoBehaviour {
 
     public GameObject confetti;
     //edit this, add the wormhole sprite instead
+    public const int weaponPower = 100;
+    //pistol can kill every weak enemy with 1 shot right now
+
 
     public IEnumerator ShootPistol(Vector3 playerPos, Vector3 playerDir, System.Action<bool> callback)
     {
@@ -18,12 +21,16 @@ public class Pistol : MonoBehaviour {
             Vector3 aimAngle = new Vector3(0, angle, 0);
             if(Physics.Raycast(playerPos, (playerDir + aimAngle) * 360, out hit, 50))
             {
-                //TEMPORARY DEBUG INSTANTIATE CONFETTI
-                Instantiate(confetti, hit.point, hit.transform.rotation);
                 if (hit.collider.tag == "Enemy")
                 {
-                    //add the wormhole sprite instantiate here
-                    Destroy(hit.collider.gameObject);
+                    //if the hit is lethal, print the wormhole, otherwise just do damage
+                    if (hit.collider.gameObject.GetComponent<DolorBehavior>().health < 100)
+                    {
+                        //add the wormhole sprite instantiate here
+                        //TEMPORARY DEBUG INSTANTIATE CONFETTI
+                        Instantiate(confetti, hit.point, hit.transform.rotation);
+                    }
+                    hit.collider.gameObject.GetComponent<DolorBehavior>().Damage(100);
                     break;
                 }
             }
