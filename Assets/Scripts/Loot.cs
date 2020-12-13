@@ -12,8 +12,10 @@ public class Loot : MonoBehaviour {
     //DROPS:
         //RIPPER, GUN2, BASEBALLBAT
     //AMMO:
-        //AMMO0, AMMO1, AMMO2
-    //
+        //PISTOLammo, GUN2ammo, RIFTcartridge
+    //ACTION ITEMS:
+        //literally what ever else. "Blue Key", "Red Key", etc
+    
 
     //if you forget to conf the drop
     //it just goes to health by default
@@ -43,8 +45,20 @@ public class Loot : MonoBehaviour {
                 FindObjectOfType<WeaponManager>().availableWeapons[3] = true;
                 break;
 
-            case "AMMO0":
+            case "PISTOLammo":
                 FindObjectOfType<WeaponManager>().weaponAmmo[0] += value;
+                break;
+            case "GUN2ammo":
+                FindObjectOfType<WeaponManager>().weaponAmmo[0] += value;
+                break;
+            case "RIFTcartridge":
+                FindObjectOfType<WeaponManager>().weaponAmmo[0] += value;
+                break;
+
+                //if its not any of the above, then it is probably an action item/pickup
+                //such as keys. add item to inventory.
+            default:
+                FindObjectOfType<InsainPlayer>().AddItem(type);
                 break;
 
         }

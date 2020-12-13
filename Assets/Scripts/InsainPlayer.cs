@@ -34,7 +34,10 @@ public class InsainPlayer : MonoBehaviour {
         DataController dolor = FindObjectOfType<DataController>();
         HeadCam.GetComponent<Camera>().fieldOfView = dolor.LoadedData.FOV;
         mouseSensitivity = dolor.LoadedData.MouseSensitivity;
-
+        //just call this to make sure timescale is in fact back to normal
+        //because for some reason when reloading scene something happens that it doesnt
+        //fix the time scale properly
+        Time.timeScale = 1f;
     }
 	
 	// Update is called once per frame
@@ -91,19 +94,57 @@ public class InsainPlayer : MonoBehaviour {
         }
 
     }
-
+    //turn this into an ienumerator so you cant call interaction button again until it returns an action
+    //OUTSOURCE ALL INTERACTABLE LOGIC TO INTERACTABLE BEHAVIOR OOOOOH MY GOOOOOOOOOD
+    //USE A CALLBACK FROM INTERACTABLE LOGIC TO TERMINATE THIS IENUMERATOR
     void ActionButton()
     {
+        Debug.Log("action button was pressed");
         //this is the interaction handler for using keys and utilities
         RaycastHit hit;
-        if (Physics.Raycast(gameObject.transform.position, gameObject.transform.rotation.eulerAngles, out hit, 2.0f))
+        bool interactable = false;
+        //check that ur actually hitting something, then check if the item is interactable
+        Debug.Log(gameObject.transform.rotation.eulerAngles.ToString());
+        if (Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit, 5.0f))
         {
-            if(hit.collider.tag == "Interactable")
+            if (hit.collider.tag == "Interactable")
             {
-                //no idea what to put here yet
+                interactable = true;
+                Debug.Log("target is in fact interactable");
+            }
+            //just do this, to prevent stacking tons of ifs and a for loop.
+        }
+        //here we do stuff if the item is interactable.
 
-
-
+        //LOOK AT THIS FUCKING MONSTER NOOOOO WAY
+        //SORT THIS BASTARD OF A SYSTEM OUT LATER I GOTTA GET IT DONE
+        if (interactable)
+        {
+            InteractableBehavior benis = hit.collider.gameObject.GetComponent<InteractableBehavior>();
+            Debug.Log(benis.key);
+            if (benis.locked)
+            {
+                //ok make sure ur not trying to open an already opened door
+                //ok make sure ur not checking the key for a door that duznt require one
+                if (benis.key == "")
+                {
+                    Debug.Log("target was not locked with a key. opening");
+                    benis.locked = false;
+                }
+                else
+                {
+                    //ok check if the items in ur inv and consoom it if it duz be
+                    foreach(string e in inventory)
+                    {
+                        if (e == benis.key)
+                        {
+                            benis.locked = false;
+                            inventory.Remove(e);
+                            Debug.Log("target was locked with a key. " + e + "has been consoomed");
+                            break;
+                        }
+                    }
+                }
             }
         }
     }
@@ -163,6 +204,4 @@ public class InsainPlayer : MonoBehaviour {
             defaultCamPos.y - (bobFactor / 100),
             defaultCamPos.z);
     }
-
-
 }

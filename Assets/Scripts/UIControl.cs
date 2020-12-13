@@ -30,6 +30,7 @@ public class UIControl : MonoBehaviour {
         weaponData = FindObjectOfType<WeaponManager>();
         player = FindObjectOfType<InsainPlayer>();
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 	
 	// Update is called once per frame
